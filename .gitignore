@@ -43,21 +43,6 @@ Thumbs.db
 # Vim temporary files
 .*.swp
 
-# Visual Studio generated files
-*.ib_pdb_index
-*.idb
-*.ilk
-*.pdb
-*.sln
-*.suo
-*.vcproj
-*vcproj.*.*.user
-*.ncb
-*.sdf
-*.opensdf
-*.vcxproj
-*vcxproj.*
-
 # MinGW generated files
 *.Debug
 *.Release
@@ -67,7 +52,15 @@ Thumbs.db
 
 # Binaries
 # --------
-*.dll
 *.exe
+*.out
 
+# Compiled Object files
+*.o
 
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Static libraries
+*.lib
