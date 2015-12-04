@@ -9,11 +9,19 @@ private:
 	int argc;
 	char **argv;
 	int encode,decode;
-	std::string input_file,output_file;
-	void parse_options();
-	std::string expected_options;
+	std::string inputFile,outputFile,inputText;
+	std::string expectedOptions;
+
+	void parseOptions();
+	void checkExpectations();
+
 public:
 	Options(int, char**);
+	int isEncode();
+	int isDecode();
+	std::string getInputFile();
+	std::string getOutputFile();
+	std::string getInputText();
 };
 
 #endif // OPTIONS_H
