@@ -1,5 +1,11 @@
-project(imageLSB)
 cmake_minimum_required(VERSION 2.8)
-aux_source_directory(. SRC_LIST)
-add_executable(${PROJECT_NAME} ${SRC_LIST})
 
+project(imageLSB)
+set (HEADERS 
+	src/CImg.h)
+ 
+set (SOURCES 
+	src/main.cpp)
+
+add_executable(${PROJECT_NAME} ${HEADERS} ${SOURCES})
+target_link_libraries(${PROJECT_NAME} PUBLIC pthread)
