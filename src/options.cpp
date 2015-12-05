@@ -2,9 +2,9 @@
 #include <cstdlib>
 #include <unistd.h>
 #include <stdio.h>
-Options::Options(int argc_outer,char** argv_outer):
-	argc(argc_outer),
-	argv(argv_outer)
+Options::Options(int argcOuter,char** argvOuter):
+	argc(argcOuter),
+	argv(argvOuter)
 {
 	expectedOptions="edi:o:t:";
 	encode=0;
@@ -15,27 +15,27 @@ Options::Options(int argc_outer,char** argv_outer):
 
 int Options::isEncode()
 {
-
+	return encode;
 }
 
 int Options::isDecode()
 {
-
+	return decode;
 }
 
 std::string Options::getInputFile()
 {
-
+	return inputFile;
 }
 
 std::string Options::getOutputFile()
 {
-
+	return outputFile;
 }
 
 std::string Options::getInputText()
 {
-
+	return inputText;
 }
 
 void Options::parseOptions()
@@ -59,12 +59,18 @@ void Options::parseOptions()
 			inputText = optarg;
 			break;
 		case '?':
-			if(optopt == 'i' || optopt == 'o' || optopt == 't')
+			if(optopt == 'i' || optopt == 'o' || optopt == 't') {
 				fprintf (stderr, "Option -%c requires an argument.\n", optopt);
-			else if (isprint (c))
+				abort();
+			}
+			else if (isprint (c)) {
 				fprintf (stderr, "Unknown option `-%c'.\n", optopt);
-			else
+				abort();
+			}
+			else {
 				fprintf (stderr, "Unknown option character `\\x%x'.\n", optopt);
+				abort();
+			}
 			break;
 		default:
 			break;
@@ -77,18 +83,22 @@ void Options::parseOptions()
 void Options::checkExpectations()
 {
 	if(encode){
-		if(inputFile.empty())
+		if(inputFile.empty()) {
 			fprintf (stderr, "Encode option specified,"
 											 " but no input file specified.\n");
-		else if (outputFile.empty())
+			abort();
+		}
+		else if (outputFile.empty()){
 			fprintf (stderr, "Encode option specified,"
 											 " but no output file specified.\n");
+			abort();
+		}
 		else if (inputText.empty())
 			fprintf (stderr, "Encode option specified,"
 											 " but no input text specified.\n");
 	}
 	else if (decode)
 		if (inputFile.empty())
-					fprintf (stderr, "Decode option specified,"
-													 " but no input file specified.\n");
+			fprintf (stderr, "Decode option specified,"
+											 " but no input file specified.\n");
 }
