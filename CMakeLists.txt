@@ -18,6 +18,7 @@ file(GLOB HEADERS
 src/*.h
 )
 
+
 add_executable(${PROJECT_NAME} ${HEADERS} ${SOURCES})
-target_link_libraries(${PROJECT_NAME} PUBLIC pthread png)
-add_definitions(-Dcimg_display=0 -Dcimg_use_png)
+target_link_libraries(${PROJECT_NAME} PUBLIC pthread png jpeg)
+add_definitions(-Dcimg_display=0 -Dcimg_use_png -Dcimg_use_jpeg -Dcimg_use_openmp)

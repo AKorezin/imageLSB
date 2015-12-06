@@ -29,6 +29,7 @@ int main(int argc,char **argv)
 			DecodeFromImage inputImage;
 			inputImage.setImage(image);
 			std::string ouputText=inputImage.getDecodeResult();
+			printf("%s\n",ouputText.c_str());
 		}
 	}
 	return 0;

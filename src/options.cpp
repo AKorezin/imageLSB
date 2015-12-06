@@ -75,9 +75,6 @@ void Options::parseOptions()
 		default:
 			break;
 		}
-	printf("encode = %i, decode = %i, input_file = %s, output_file = %s,"
-				 " input_text = %s\n",encode,decode,inputFile.c_str(),
-				 outputFile.c_str(),inputText.c_str());
 }
 
 void Options::checkExpectations()
