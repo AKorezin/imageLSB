@@ -17,6 +17,7 @@ class EncodeToImage
 	int countLenght();
 	void encodeText();
 	void encodeSize();
+	void uploadVectorToImage();
 public:
 	EncodeToImage();
 	void setImage(CImg<unsigned char>);

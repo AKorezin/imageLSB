@@ -1,4 +1,3 @@
-#define cimg_display 0
 #include "decodefromimage.h"
 
 DecodeFromImage::DecodeFromImage()

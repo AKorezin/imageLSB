@@ -1,4 +1,3 @@
-#define cimg_display 0
 #include <iostream>
 #include "options.h"
 #include "openfile.h"

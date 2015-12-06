@@ -19,4 +19,5 @@ src/*.h
 )
 
 add_executable(${PROJECT_NAME} ${HEADERS} ${SOURCES})
-target_link_libraries(${PROJECT_NAME} PUBLIC pthread)
+target_link_libraries(${PROJECT_NAME} PUBLIC pthread png)
+add_definitions(-Dcimg_display=0 -Dcimg_use_png)

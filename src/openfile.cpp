@@ -1,5 +1,3 @@
-
-#define cimg_display 0
 #include "openfile.h"
 #include <unistd.h>
 #include <cstdio>
